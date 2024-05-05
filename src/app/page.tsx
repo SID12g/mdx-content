@@ -1,5 +1,6 @@
 import contents from "@/utils/getContents";
 import { tags } from "@/utils/getTags";
+import Link from "next/link";
 
 export default function Home() {
   console.log(tags);
@@ -24,9 +25,13 @@ export default function Home() {
       <div style={{ height: 20 }} />
       <div>
         {contents.map((content, index) => (
-          <div style={{ border: "1px solid black", padding: 8 }} key={index}>
+          <Link
+            href={`/contents/${content.slug}`}
+            style={{ border: "1px solid black", padding: 8 }}
+            key={index}
+          >
             {content.meta.title} ({content.meta.tag}) ({content.meta.date})
-          </div>
+          </Link>
         ))}
       </div>
     </div>

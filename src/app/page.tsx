@@ -3,7 +3,6 @@ import { tags } from "@/utils/getTags";
 import Link from "next/link";
 
 export default function Home() {
-  console.log(tags);
   return (
     <div>
       <div style={{ display: "flex" }}>

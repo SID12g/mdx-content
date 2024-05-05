@@ -1,0 +1,28 @@
+---
+title: 테스트 제목
+date: "2024-05-05"
+description: 테스트 설명
+tag: 테스트 테그
+---
+
+## test
+
+test
+
+```tsx
+// src/util/database.ts
+import { MongoClient } from "mongodb";
+const url = process.env.MONGO_URI || "";
+let connectDB: Promise<MongoClient>;
+
+if (process.env.NODE_ENV === "development") {
+  if (!global._mongo) {
+    global._mongo = new MongoClient(url).connect();
+  }
+  connectDB = global._mongo;
+} else {
+  connectDB = new MongoClient(url).connect();
+}
+
+export { connectDB };
+```

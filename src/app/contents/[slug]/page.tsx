@@ -76,12 +76,6 @@ export default function Post({ params }: any) {
       </div>
       <h1>{props.frontMatter.title}</h1>
       <p>{props.frontMatter.description}</p>
-      <Image
-        src={props.frontMatter.image}
-        alt="preview"
-        width={1920}
-        height={1080}
-      />
       <div className={styles.content}>
         <MDXRemote source={props.content} options={options} />
       </div>

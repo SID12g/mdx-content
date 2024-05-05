@@ -4,7 +4,6 @@ import Link from "next/link";
 
 export default function Home() {
   console.log(tags);
-  console.log(contents);
   return (
     <div>
       <div style={{ display: "flex" }}>
@@ -18,20 +17,23 @@ export default function Home() {
             }}
             key={index}
           >
-            {tag.tag} ({tag.count})
+            <Link href={`/tags/${tag.tag}`}>
+              {tag.tag} ({tag.count})
+            </Link>
           </div>
         ))}
       </div>
       <div style={{ height: 20 }} />
       <div>
         {contents.map((content, index) => (
-          <Link
-            href={`/contents/${content.slug}`}
-            style={{ border: "1px solid black", padding: 8 }}
+          <div
+            style={{ border: "1px solid black", margin: 8, padding: 8 }}
             key={index}
           >
-            {content.meta.title} ({content.meta.tag}) ({content.meta.date})
-          </Link>
+            <Link href={`/contents/${content.slug}`}>
+              {content.meta.title} ({content.meta.tag}) ({content.meta.date})
+            </Link>
+          </div>
         ))}
       </div>
     </div>
